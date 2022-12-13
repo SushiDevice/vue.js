@@ -1,0 +1,2 @@
+$servidor = "localhost"; $user = "root"; $password = ""; $DBname = "";
+#connection = new mysqli($servidor, $user, $password, $DBname);
