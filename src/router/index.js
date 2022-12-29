@@ -4,8 +4,11 @@ import CrearTorneo from '../components/CrearTorneo.vue'
 import NewList from '../components/NewList.vue'
 import MainPage from '../components/MainPage.vue'
 import LogIn from '../components/LogIn.vue'
+import TorneoPhase1 from '../components/TorneoPhase1.vue'
 
 const routes = [
+
+
   {
     path: '/',
     name: 'home',
@@ -35,7 +38,11 @@ const routes = [
     component: MainPage
   },
 
-
+{
+    path: '/torneophase1',
+    name: 'TorneoPhase1',
+    component: TorneoPhase1
+  },
 
   {
     path: '/about',

@@ -14,8 +14,10 @@
     <router-link to="/mainpage">MainPage</router-link>
   </nav>
 </div>
-<div background = ""></div>
   <router-view/>
+  <footer class="container-xxl-fluid bg-dark">
+    <h5 class="text-start text-white">UNTOP</h5>
+  </footer>
 </template>
 
 
@@ -43,9 +45,22 @@ nav a.router-link-exact-active {
 
 
 body {
+
   background: url(./assets/otrof.jpg)  no-repeat;
   backdrop-filter: blur(10px);
   background-size: cover ;
+  padding-bottom: 3em;
+  min-height: 100vh;
+
 }
+
+footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 2.5rem;            /* Footer height */
+  padding: 1em 0;
+}
+
 </style>
 

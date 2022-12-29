@@ -1,6 +1,6 @@
 <template>
     <div>
-        Hola mundo
+        Hola mundo xddddddddddddddd
         <div v-for="Users in Users" :key="Users.id_user">
             <div>   {{Users.id_user}}</div>
             <div>   {{Users.mail}}</div>
