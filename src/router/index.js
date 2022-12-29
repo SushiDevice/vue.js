@@ -1,26 +1,56 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+//import HomeView from '../views/HomeView.vue'
 import CrearTorneo from '../components/CrearTorneo.vue'
 import NewList from '../components/NewList.vue'
 import MainPage from '../components/MainPage.vue'
 import LogIn from '../components/LogIn.vue'
 import TorneoPhase1 from '../components/TorneoPhase1.vue'
+import MisTorneos from  '../components/MisTorneos.vue'
+import EditarTorneo from '../components/EditarTorneo.vue'
+import EnviarAqui from '../components/EnviarAqui.vue'
+import TorneosUn from '../views/TorneosUn.vue'
+import NewTeams from '../components/NewTeams.vue'
+
 
 const routes = [
 
-
-  {
+  /*{
     path: '/',
     name: 'home',
     component: HomeView
-  },
+  },*/
 
   {
     path: '/creartorneo',
     name: 'CrearTorneo',
     component: CrearTorneo
   },
+  {
+    path: '/newteams',
+    name: 'NewTeams',
+    component: NewTeams
+  },
+  {
+    path: '/enviaraqui',
+    name: 'EnviarAqui',
+    component: EnviarAqui
+  },
+  {
+    path: '/editartorneo/:id',
+    name: 'EditarTorneo',
+    component: EditarTorneo
+  },
 
+  {
+    path: '/mistorneos',
+    name: 'MisTorneos',
+    component: MisTorneos
+  },
+  {
+    path: '/torneosun/:id?',
+    name: 'TorneosUn',
+    component: TorneosUn 
+  },
   {
     path: '/login',
     name: 'LogIn',

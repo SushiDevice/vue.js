@@ -1,0 +1,218 @@
+<template>
+  <div id="container-xxl" class="creartorneo bg-dark text-white utils home">
+    <div id="row" class="row aling-items-starts">
+      <div id="login" class="col border-right">
+        <form  v-on:submit.prevent="obtenerUsuarios" >
+          <h1 id="h1">LogIn</h1>
+          <input
+            class="controls"
+            type="text"
+            name="nombre_usuario"
+            v-model="User.user_name"
+            id="nombre"
+            placeholder="Nombre de usuario"
+          />
+
+          <input
+            class="controls"
+            type="password"
+            name="contraseña"
+            id="contraseña"
+            placeholder="Contraseña"
+            v-model="User.password"
+          />
+          <button
+          type="submit"
+          href="http://localhost:8080/login"
+          class="btn btn-success"
+        >
+          LogIn
+        </button>
+
+       
+       
+
+        </form>
+      </div>
+
+      <form class="col" v-on:submit.prevent="agregarRegistro">
+        <h1 id="h1">Registrarse</h1>
+
+        <input
+          class="controls"
+          type="text"
+          name="user_name"
+          v-model="Users.user_name"
+          id="user_name"
+          placeholder="Nombre de usuario"
+        />
+
+        <input
+          class="controls"
+          type="text"
+          name="first_name"
+          id="first_name"
+          v-model="Users.first_name"
+          placeholder="Nombre"
+        />
+
+        <input
+          class="controls"
+          type="text"
+          name="last_name"
+          v-model="Users.last_name"
+          id="last_name"
+          placeholder="Apellido"
+        />
+
+        <input
+          class="controls"
+          type="password"
+          name="password"
+          v-model="Users.password"
+          id="password"
+          placeholder="Contraseña"
+        />
+
+        <input
+          class="controls"
+          type="mail"
+          name="mail"
+          v-model="Users.mail"
+          id="mail"
+          placeholder="Correo"
+        />
+
+        <button
+          type="submit"
+          href="http://localhost:8080/login"
+          class="btn btn-success"
+        >
+          Registrarse
+        </button>
+      </form>
+      <div id="alerta"></div>
+    </div>
+   
+  </div>
+</template>
+<script>
+export default {
+  data() {
+    return {
+      Users: {},
+      User: {},
+      
+    };
+  },
+
+  methods: {
+    agregarRegistro() {
+      console.log(this.Users);
+
+      var datosEnviar = {
+        user_name: this.Users.user_name,
+        first_name: this.Users.first_name,
+        last_name: this.Users.last_name,
+        password: this.Users.password,
+        mail: this.Users.mail,
+      };
+
+      fetch("http://localhost/Data/conexion.php/?insertaruser=1", {
+        method: "POST",
+        body: JSON.stringify(datosEnviar),
+      })
+        .then((respuesta) => respuesta.json())
+        .then((datosRespuesta) => {
+          console.log(datosRespuesta);
+          window.location.href = "login";
+        });
+    },
+
+    obtenerUsuarios(){
+
+console.log(this.User);
+
+var datosEnviar={ user_name: this.User.user_name,
+                  password: this.User.password
+                }
+
+            fetch('http://localhost/Data/conexion.php/?consultaruser=1',{
+                method: "POST",
+                body: JSON.stringify(datosEnviar)
+            }) 
+            .then(respuesta=>respuesta.json())
+            .then(({success}) => {
+              if (success === 1) {
+                window.location.href='mainpage'
+              }
+              else{
+                this.alerta()
+              }
+            })
+                  
+},
+
+alerta(){
+ document.getElementById('alerta').innerHTML +=
+ ` <div class="alert alert-danger alert-dismissible fade show mt-5" role="alert">
+ 
+  <div class="text-start">
+    Introduzca datos validos
+  </div>
+</div>`;
+}
+
+
+
+
+  },
+};
+</script>
+
+<style>
+.border-right {
+  border-right: 0.5px solid white;
+}
+
+#row {
+  margin-top: 100px;
+}
+
+#login {
+  margin-top: 80px;
+}
+
+#h1 {
+  font-family: "calibri";
+  color: white;
+}
+
+.controls {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #1f53c5;
+  font-family: "calibri";
+  font-size: 18px;
+}
+
+.utils {
+  padding: 30px;
+}
+
+#container-xxl {
+  width: 50%;
+  border-radius: 25px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#container-xxl h2 {
+  text-align: start;
+  width: 100%;
+}
+</style>

@@ -1,17 +1,16 @@
 <template>
   <div class="container-fluid bg-dark">
   <nav>  
-    <router-link to="/">Home</router-link>
-    |
-    <router-link to="/about">About</router-link>
+   
+    <router-link to="/mistorneos">MisTorneos</router-link>
     |
     <router-link to="/creartorneo">CrearTorneo</router-link>
-    |
-    <router-link to="/newlist">FQ/A</router-link>
     |
     <router-link to="/login">LogIn</router-link>
     |
     <router-link to="/mainpage">MainPage</router-link>
+    |
+    <router-link to="/newteams">Equipos</router-link>
   </nav>
 </div>
   <router-view/>

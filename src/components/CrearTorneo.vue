@@ -8,15 +8,15 @@
     <div class="row aling-items-stars">
       <div class="col">
          <ul class="list-group list-group-flush mt-5">
-            <li class="list-group-item">An item</li>
-            <li class="list-group-item">A second item</li>
-            <li class="list-group-item">A third item</li>
-            <li class="list-group-item">A fourth item</li>
-            <li class="list-group-item">And a fifth one</li>
+            <li class="list-group-item">Crea tu torneo</li>
+            <li class="list-group-item">Hazlos publicos o privados</li>
+            <li class="list-group-item">Eliges las reglas del torneo</li>
+            <li class="list-group-item">Establece un premio</li>
+            <li class="list-group-item">Listo!</li>
 </ul>
       </div>
       <div class="col">
-       <img src="../assets/smash_logo.png" class="CrearIm"    alt="">
+       <img src="../assets/smash_logo.png" class="CrearIm" alt="">
    </div>
     <a href="http://localhost:8080/torneophase1" id="a" class="btn btn-success mt-5">CREAR TORNEO</a></div>
    </div>
@@ -55,6 +55,8 @@ export default {
    height: 300px;
    float: right;
    margin-top: 50px;
+   margin-right: 50px;
+   padding-bottom: 10px;
 
 }
 
